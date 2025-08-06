@@ -10,8 +10,13 @@ console.log(document.body.children);
 console.log(document.body.children.length);
 
 // The difference in length between childNodes and children of Explain why they differ.
-console.log(document.body.childNodes);
-console.log(document.body.children);
+// The Differance is:
+console.log(
+  document.body.childNodes.length - document.body.children.length
+); //3
+
+console.log(document.body.childNodes.length); //6
+console.log(document.body.children.length); //3
 /*
 Explain  :
 childNodes => Returns all child nodes, including element nodes, text nodes (like newlines and spaces), and comment nodes.
@@ -35,7 +40,10 @@ const firstPar = document.getElementById("firstPar");
 console.log(firstPar.nextElementSibling);
 
 // Can you find any unexpected text nodes in the DOM structure? Log them and explain their origin.
-console.log(document.body.childNodes);// with #text .. 
+console.log(document.body.childNodes);// with #text ..
+
+
+
 //  Returns all child nodes, including element nodes, text nodes (like newlines and spaces), and comment nodes.
 
 console.log("------------------ Task 2 ------------------------");
