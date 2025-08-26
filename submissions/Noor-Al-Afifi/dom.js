@@ -36,12 +36,20 @@ Every node in the page has a nodeType
 
 // Is the first paragraph a sibling of the second, or a descendant?
 // yes it is a nextSiblig
-const firstPar = document.getElementById("firstPar");
-console.log(firstPar.nextElementSibling);
+
+const main = document.body.children[1]; 
+
+const section = main.firstElementChild; 
+
+const firstPar = section.firstElementChild; // first child 
+
+console.log(firstPar.textContent);
+
+
+
 
 // Can you find any unexpected text nodes in the DOM structure? Log them and explain their origin.
-console.log(document.body.childNodes);// with #text ..
-
+console.log(document.body.children);// without #text ..
 
 
 //  Returns all child nodes, including element nodes, text nodes (like newlines and spaces), and comment nodes.
@@ -51,7 +59,10 @@ console.log("------------------ Task 2 ------------------------");
 
 const cardDiv = document.createElement("div")
 cardDiv.classList.add('card')
-cardDiv.setAttribute("data-role", "admin"); // add a class
+
+cardDiv.dataset.role ='admin'; 
+// cardDiv.setAttribute("data-role", "admin"); // add a class
+
 document.body.append(cardDiv)
 
 const h2 = document.createElement("h2");
@@ -63,7 +74,7 @@ p.textContent = "Authenticated";
 cardDiv.insertAdjacentElement("beforeend", p);
 
 // Log the value of the data-role as a JS property, not via .getAttribute.
-console.log(cardDiv.getAttribute("data-role")) // TO get a value of attribute
+console.log(cardDiv.dataset.role) // TO get a value of attribute
 
 // Change the paragraph text to "Welcome back, Admin" using a property, not a method.
 p.textContent = "Welcome back, Admin";
@@ -75,5 +86,13 @@ cardDiv.classList.add("highlight");
 
 // Use classList.contains() to verify that "card" still exists, and remove it while keeping the others.
 console.log(cardDiv.classList.contains("card")); // true
-cardDiv.classList.remove('card') // remove a card class 
+
+
+if (cardDiv.classList.contains("card")) {
+  cardDiv.classList.remove("card"); // remove a card class
+  console.log("Remove succesfully ")
+} else {
+  console.log('The element does not have the class card');
+}
+  
 
